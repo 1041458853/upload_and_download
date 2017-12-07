@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>服务器目录</title>
+</head>
+<body>
+<p> 当前目录 </p>
+<a th:href="@{/catalog(path=${goBack})}">返回上一级</a>
+<div>
+    <div>文件夹名
+        <ul th:each="directory : ${directoryNames}">
+            <!--通过得到的文件路径名，拼接超链接-->
+            <a th:href="@{/catalog(path=${directory})}">
+                <li th:text="${directory}"></li>
+            </a>
+        </ul>
+    </div>
+
+    文件名
+    <ul th:each="file : ${fileNames}">
+        <!--<li th:text="${file}"></li>-->
+        <!--通过得到的文件路径名，拼接超链接,用于下载-->
+        <a th:href="@{/down(path=${file})}">
+            <li th:text="${file}"></li>
+        </a>
+    </ul>
+</div>
+</body>
+</html>

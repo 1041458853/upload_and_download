@@ -4,3 +4,15 @@ spring:
       url: jdbc:mysql://127.0.0.1:3306/test
       username: root
       password:
+
+  thymeleaf:
+      prefix: classpath:/templates/
+      cache: false
+server:
+#  context-path: /
+  port: 8080
+  session:
+    timeout: 500
+  tomcat:
+    uri-encoding: UTF-8
+
